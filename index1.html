@@ -1,32 +1,92 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Task Manager</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="container">
 
-        <h1>Student Task Manager</h1>
+        <header class="header">
+            <div>
+                <h1>My Study Space ✨</h1>
+                <p>Plan smart. Study better. Achieve more.</p>
+            </div>
+            <div class="header-icon">📚</div>
+        </header>
 
-        <p>Manage your assignments and deadlines easily!</p>
+        <section class="welcome-card">
+            <h2>Welcome, Student! 👋</h2>
+            <p>Stay organised and keep track of your goals.</p>
+        </section>
 
-        <input type="text" id="taskInput"
-        placeholder="Enter your task">
+        <section class="stats">
+            <div class="stat-card">
+                <h3 id="totalTasks">0</h3>
+                <p>Total Tasks</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="completedTasks">0</h3>
+                <p>Completed</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="pendingTasks">0</h3>
+                <p>Pending</p>
+            </div>
+        </section>
 
-        <input type="date" id="taskDate">
+        <section class="progress-card">
+            <h3>My Progress 🎯</h3>
+            <div class="progress-track">
+                <div id="progressBar"></div>
+            </div>
+            <p id="progressText">0% completed</p>
+        </section>
 
-        <button onclick="addTask()">Add Task</button>
+        <section class="add-card">
+            <h2>➕ Add a New Task</h2>
 
-        <h2>My Tasks</h2>
+            <input type="text" id="taskInput"
+                placeholder="What do you need to do?">
 
-        <ul id="taskList"></ul>
+            <div class="input-row">
+                <input type="date" id="taskDate">
+
+                <select id="taskPriority">
+                    <option value="Low">Low Priority</option>
+                    <option value="Medium" selected>Medium Priority</option>
+                    <option value="High">High Priority</option>
+                </select>
+            </div>
+
+            <button class="add-button" onclick="addTask()">
+                + Add Task
+            </button>
+        </section>
+
+        <section class="tasks-section">
+            <h2>My Tasks 📝</h2>
+
+            <div class="filters">
+                <button class="filter active" onclick="filterTasks('all', this)">All</button>
+                <button class="filter" onclick="filterTasks('pending', this)">Pending</button>
+                <button class="filter" onclick="filterTasks('completed', this)">Completed</button>
+            </div>
+
+            <ul id="taskList"></ul>
+        </section>
+
+        <footer>
+            Made for students, with 💜
+        </footer>
 
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
+
